@@ -1,9 +1,17 @@
 package com.example.project01.Controllers;
 
+import com.example.project01.Entities.Comment;
+import com.example.project01.Services.CommentService;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequestMapping("/comments")
 public class CommentController {
+
+    private CommentService commentService;
+
+    public CommentController(CommentService commentService){
+        this.commentService = commentService;
+    }
 }

@@ -10,6 +10,8 @@ import org.hibernate.annotations.OnDeleteAction;
 @Data
 @Table(name = "comments")
 public class Comment {
+
+    @Id
     Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
@@ -22,7 +24,7 @@ public class Comment {
     @JoinColumn(name = "post_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     @JsonIgnore
-    Long postId;
+    Post post;
 
     @Lob
     @Column(columnDefinition = "text")
